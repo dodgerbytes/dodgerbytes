@@ -1,0 +1,21 @@
+---
+import BaseLayout from "@/layouts/base.astro";
+import { getEntry } from "astro:content";
+import NewsTicker from "@/pages/_home/news-ticker.astro";
+import Headlines from "@/pages/_home/headlines.astro";
+import LatestNews from "@/pages/_home/latestNews.astro";
+import Follow from "@/pages/_home/follow.astro";
+
+const entry = await getEntry("views", "home");
+
+if (!entry) {
+  return Astro.redirect("/404");
+}
+---
+
+<BaseLayout entry={entry}>
+  <NewsTicker />
+  <Headlines />
+  <LatestNews />
+  <div class="pt-12"><Follow /></div>
+</BaseLayout>
