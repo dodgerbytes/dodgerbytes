@@ -3,20 +3,24 @@ import NewsCard from "@/components/cards/newsCard.astro";
 import HeaderSection from "./headerSection.astro";
 import { articlesHandler } from "@/lib/handlers/articles";
 
-const articles = articlesHandler.allArticles();
+// Dodgers stories first; other teams' news gets its own row below
+const all = articlesHandler.allArticles();
+const dodgers = all.filter((a) => a.data.category.id !== "around-mlb");
+const league = all.filter((a) => a.data.category.id === "around-mlb");
 ---
 
 <section class="container pt-12 pb-0 space-y-4" data-pagefind-ignore="all">
-  <HeaderSection
-    title="Latest Dodgers News"
-    link_title="View all"
-    link_url="/articles"
-  />
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 gap-y-6 md:grid-rows-2">
-    {
-      articles
-        .slice(0, 6)
-        .map((article, index) => <NewsCard article={article} index={index} />)
-    }
+  <HeaderSection title="Latest Dodgers News" link_title="View all" link_url="/articles" />
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 gap-y-6">
+    {dodgers.slice(0, 6).map((article, index) => <NewsCard article={article} index={index} />)}
   </div>
 </section>
+
+{league.length > 0 && (
+  <section class="container pt-12 pb-0 space-y-4" data-pagefind-ignore="all">
+    <HeaderSection title="Around MLB" link_title="More" link_url="/categories/around-mlb/1" />
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 gap-y-6">
+      {league.slice(0, 3).map((article, index) => <NewsCard article={article} index={index + 6} />)}
+    </div>
+  </section>
+)}

@@ -1,6 +1,6 @@
 ---
 import { articlesHandler } from "@/lib/handlers/articles";
-const latest = articlesHandler.allArticles().slice(0, 3);
+const latest = articlesHandler.allArticles().filter((a) => a.data.category.id !== "around-mlb").slice(0, 3);
 ---
 
 <!-- Red "LATEST" bar under the header, like a TV news ticker -->
