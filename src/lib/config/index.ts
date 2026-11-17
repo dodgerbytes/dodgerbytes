@@ -28,6 +28,7 @@ export const NAVIGATION_LINKS: Link[] = [
   { href: "/categories/awards", text: "Awards" },
   { href: "/categories/on-this-day", text: "On This Day" },
   { href: "/categories/around-mlb", text: "Around MLB" },
+  { href: "/categories/weekly-recap", text: "Weekly Recap" },
 ];
 
 export const OTHER_LINKS: Link[] = [
