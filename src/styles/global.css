@@ -138,6 +138,10 @@
     @apply hover:underline decoration-primary;
   }
   /* Small colored tag like the RUMOR / BREAKING label on the cards */
+  /* RUMOR / REPORT / PREDICTION / BREAKING label on robot posts */
+  .db-label {
+    @apply inline-block font-serif uppercase tracking-wider text-xs font-bold px-2 py-0.5 rounded-sm bg-neutral text-neutral-content mr-2;
+  }
   .db-tag {
     @apply inline-block font-serif uppercase tracking-wider text-xs font-bold px-2 py-0.5 rounded-sm bg-secondary text-secondary-content;
   }

@@ -43,7 +43,7 @@ const category = categoriesHandler.oneCategory(article.data.category.id);
       {article.data.description}
     </p>
     <div class="flex items-center text-xs text-base-content/80 mt-2">
-      <span class="db-tag">{category.data.title}</span>
+      {article.data.label && <span class="db-label">{article.data.label}</span>}<span class="db-tag">{category.data.title}</span>
       <Divider />
       <span class="text-xs text-base-content/80">{new Date(article.data.publishedTime).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "America/Los_Angeles" })}</span>
     </div>
