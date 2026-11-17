@@ -47,6 +47,8 @@ const OGImage = new URL(meta.ogImage, Astro.url).href;
     href={new URL(`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`, Astro.site)}
   />
 
+  {SITE.googleVerification && <meta name="google-site-verification" content={SITE.googleVerification} />}
+
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL} />
 
@@ -97,5 +99,24 @@ const OGImage = new URL(meta.ogImage, Astro.url).href;
     ) : null
   }
 
+  {
+    isArticleMeta(meta) && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          headline: meta.metaTitle,
+          description: meta.description,
+          image: [OGImage],
+          datePublished: new Date(meta.publishedTime).toISOString(),
+          dateModified: new Date(meta.lastModified).toISOString(),
+          author: meta.authors.map((a) => ({ "@type": "Organization", name: a.name })),
+          publisher: { "@type": "Organization", name: SITE.title },
+          mainEntityOfPage: canonicalURL,
+        })}
+      />
+    )
+  }
   <ClientRouter />
 </head>

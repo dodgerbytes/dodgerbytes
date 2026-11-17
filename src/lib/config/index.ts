@@ -16,6 +16,8 @@ export const SITE = {
   charset: "UTF-8",
   basePath: "/dodgerbytes",
   postsPerPage: 9,
+  // Google Search Console "HTML tag" code (the content="..." part). Empty = not added.
+  googleVerification: "",
 };
 
 export const NAVIGATION_LINKS: Link[] = [
