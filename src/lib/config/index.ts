@@ -17,7 +17,7 @@ export const SITE = {
   basePath: "/dodgerbytes",
   postsPerPage: 9,
   // Google Search Console "HTML tag" code (the content="..." part). Empty = not added.
-  googleVerification: "",
+  googleVerification: "nr9XR7y3rh1fPuYOMKi3DgUzSw7jBclygW4Horm06zo",
 };
 
 export const NAVIGATION_LINKS: Link[] = [
