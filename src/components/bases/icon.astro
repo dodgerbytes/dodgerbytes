@@ -4,6 +4,7 @@ import NewTwitter from "@/assets/svgs/new-twitter.astro";
 import Telegram from "@/assets/svgs/telegram.astro";
 import Facebook from "@/assets/svgs/facebook.astro";
 import Tiktok from "@/assets/svgs/tiktok.astro";
+import LinkIcon from "@/assets/svgs/link.astro";
 
 export interface Props {
   icon: string | undefined;
@@ -21,3 +22,4 @@ if (!icon) {
 {icon === "newTwitter" && <NewTwitter />}
 {icon === "facebook" && <Facebook />}
 {icon === "tiktok" && <Tiktok />}
+{icon === "link" && <LinkIcon />}
