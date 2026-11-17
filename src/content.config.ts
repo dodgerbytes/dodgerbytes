@@ -8,7 +8,8 @@ import {
 } from "@/lib/schema";
 
 const articleCollection = defineCollection({
-  loader: glob({ pattern: "**/*.mdx", base: "./src/content/articles" }),
+  // .mdx = written by hand, .md = posted by the DodgerBytes robot
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/articles" }),
   schema: ({ image }) => articleSchema(image),
 });
 
