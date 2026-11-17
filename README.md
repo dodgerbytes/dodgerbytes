@@ -5,7 +5,8 @@
 DodgerBytes is an independent, fan-run Dodgers news account on TikTok, Discord and the web.
 
 - 🌐 Website: https://dodgerbytes.github.io/dodgerbytes
-- 📱 TikTok: [@DodgerBytes](https://www.tiktok.com/@dodgerbytes)
+- 📱 TikTok: [@dodger.bytes](https://www.tiktok.com/@dodger.bytes)
+- 🔗 All socials: [linktr.ee/dodgerbytes](https://linktr.ee/dodgerbytes)
 
 ---
 

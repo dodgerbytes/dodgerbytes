@@ -36,6 +36,7 @@ export const OTHER_LINKS: Link[] = [
 ];
 
 export const SOCIAL_LINKS: Link[] = [
-  { href: "https://www.tiktok.com/@dodgerbytes", text: "TikTok", icon: "tiktok" },
+  { href: "https://www.tiktok.com/@dodger.bytes", text: "TikTok", icon: "tiktok" },
+  { href: "https://linktr.ee/dodgerbytes", text: "All DodgerBytes socials (Linktree)", icon: "link" },
   { href: "https://github.com/dodgerbytes/dodgerbytes", text: "GitHub", icon: "github" },
 ];
