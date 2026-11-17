@@ -1,0 +1,20 @@
+---
+import { articlesHandler } from "@/lib/handlers/articles";
+const latest = articlesHandler.allArticles().slice(0, 3);
+---
+
+<!-- Red "LATEST" bar under the header, like a TV news ticker -->
+<section class="bg-neutral text-neutral-content w-full" data-pagefind-ignore="all">
+  <div class="container flex items-stretch gap-3 overflow-hidden h-9">
+    <span class="bg-secondary text-secondary-content font-serif uppercase tracking-wider text-sm font-bold flex items-center px-3 -ml-4 lg:ml-0 shrink-0">Latest</span>
+    <div class="flex items-center gap-6 overflow-x-auto whitespace-nowrap text-sm no-scrollbar">
+      {latest.map((a) => (
+        <a href={`/articles/${a.id}`} class="hover:underline">{a.data.title}</a>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+</style>

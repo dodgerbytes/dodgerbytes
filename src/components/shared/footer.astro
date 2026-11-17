@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import { NAVIGATION_LINKS, SOCIAL_LINKS, OTHER_LINKS } from "@/lib/config";
+import Icon from "../bases/icon.astro";
+import logo from "@/assets/images/brand/logo-white.png";
+---
+
+<footer class="bg-neutral text-neutral-content mt-8">
+  <div class="h-1 bg-secondary"></div>
+  <div class="container py-8 flex flex-col gap-6">
+    <div class="flex flex-col md:flex-row md:items-center gap-4 md:justify-between">
+      <a href="/" aria-label="DodgerBytes home"><Image src={logo} alt="DodgerBytes" height={64} class="h-16 w-auto" /></a>
+      <p class="max-w-md text-sm opacity-80">
+        Dodgers news, rumors and transactions, posted first. Follow
+        <a class="underline" href="https://www.tiktok.com/@dodgerbytes" target="_blank" rel="noopener">@DodgerBytes on TikTok</a>.
+      </p>
+    </div>
+    <nav class="flex flex-wrap gap-x-5 gap-y-2 font-serif uppercase tracking-wider text-sm">
+      <a href="/" class="link link-hover">Home</a>
+      <a href="/articles" class="link link-hover">Latest</a>
+      {NAVIGATION_LINKS.map(({ href, text }) => <a href={href} class="link link-hover">{text}</a>)}
+    </nav>
+    <div class="flex flex-col md:flex-row gap-4 md:items-center md:justify-between border-t border-neutral-content/20 pt-4">
+      <ul class="flex gap-4">
+        {SOCIAL_LINKS.map(({ href, icon, text }) => (
+          <li><a href={href} target="_blank" rel="noopener" title={text} aria-label={text} class="link link-hover"><Icon icon={icon} /></a></li>
+        ))}
+      </ul>
+      <nav class="flex flex-wrap gap-4 text-xs opacity-80">
+        {OTHER_LINKS.map(({ href, text }) => <a href={href} class="link link-hover">{text}</a>)}
+      </nav>
+    </div>
+    <p class="text-xs opacity-60">
+      DodgerBytes is an independent fan site and is not affiliated with the Los Angeles Dodgers or Major League Baseball.
+      Photos belong to their owners. Built with the open-source <a class="underline" href="https://github.com/Mrahmani71/astro-news" target="_blank" rel="noopener">Astro News</a> theme (MIT).
+    </p>
+  </div>
+</footer>

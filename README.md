@@ -1,16 +1,42 @@
-## Hi there 👋
+# DodgerBytes
 
-<!--
-**dodgerbytes/dodgerbytes** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Dodgers news, rumors and transactions, posted first.**
 
-Here are some ideas to get you started:
+DodgerBytes is an independent, fan-run Dodgers news account on TikTok, Discord and the web.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- 🌐 Website: https://dodgerbytes.github.io/dodgerbytes
+- 📱 TikTok: [@DodgerBytes](https://www.tiktok.com/@dodgerbytes)
+
+---
+
+## About this repo
+
+This repo is the DodgerBytes website. It's built with [Astro](https://astro.build) on top of the open-source [Astro News](https://github.com/Mrahmani71/astro-news) theme (MIT license), and hosted free on GitHub Pages. Every change to `main` republishes the site automatically, usually within 2 minutes.
+
+### Add a story
+
+1. Make a folder in `src/content/articles/` named after the story, like `dodgers-sign-someone`.
+2. Inside it, add `index.mdx`. Copy one of the existing stories and change the details at the top:
+   - `title`: 60 characters max
+   - `description`: 160 characters max
+   - `category`: one of `rumors`, `free-agency`, `transactions`, `game-recaps`, `awards`, `on-this-day`, `around-mlb`
+   - `publishedTime`: the date and time, like `2026-11-20T18:00:00.000Z` (posts dated in the future go live on that day)
+   - `isMainHeadline: true`: the big story at the top of the homepage
+3. Put the story's image in `src/assets/images/articles/<same-folder-name>/cover.jpg` (16:9 works best).
+
+### Change colors, links or the menu
+
+- Site name, address and menu: `src/lib/config/index.ts`
+- Colors (Dodger blue `#005A9C`, Dodger red `#EF3E42`, navy `#002244`): `src/styles/global.css`
+
+### Run it on your computer (optional)
+
+```bash
+npm install
+npm run dev      # preview at http://localhost:4321/dodgerbytes
+npm run build    # build the site into dist/
+```
+
+---
+
+DodgerBytes is not affiliated with the Los Angeles Dodgers or Major League Baseball.

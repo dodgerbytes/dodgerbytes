@@ -1,0 +1,39 @@
+---
+import type { Link } from "@/lib/types";
+
+type Props = {
+  item: Link;
+};
+// Ignore the site's base path (e.g. /dodgerbytes) when working out which link is active
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const currentPath = Astro.url.pathname.replace(base, "") || "/";
+const { item } = Astro.props;
+
+function isActive(item: Link, currentPath: string) {
+  const segment = currentPath.split("/")[2];
+  return (
+    (item.text === "Home" && currentPath === "/") ||
+    (item.text === "Latest" &&
+      segment !== undefined &&
+      !Number.isNaN(Number(segment)) &&
+      Number(segment) >= 1) ||
+    (item.text !== "Latest" && item.href !== "/" &&
+      currentPath.startsWith(item.href))
+  );
+}
+
+function formatHref(href: string) {
+  return href === "/" ? "/" : `${href}/1`;
+}
+---
+
+<li
+  class:list={[
+    "relative after:absolute after:-bottom-2 after:left-0 after:h-[1.5px] after:w-full after:transition-all after:duration-300",
+    isActive(item, currentPath)
+      ? "after:bg-secondary pointer-events-none text-primary font-bold"
+      : "after:bg-transparent",
+  ]}
+>
+  <a href={formatHref(item.href)} aria-label={item.text}>{item.text}</a>
+</li>
